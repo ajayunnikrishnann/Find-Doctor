@@ -47,6 +47,23 @@
             border-radius: 4px;
             font-size: 12px;
         }
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .remember-forgot label {
+            font-size: 12px;
+        }
+        .remember-forgot a {
+            font-size: 12px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
         input[type="submit"] {
             background-color: #007bff;
             color: white;
@@ -67,7 +84,7 @@
 <body>
     <div class="login-form">
         <form action="" method="post">
-            <h2>Login</h2>
+            <h2>Sign in</h2>
             <div class="content">
                 <div class="inputbox">
                     <label for="username">Username</label>
@@ -77,8 +94,17 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
+                <div class="remember-forgot">
+                    <div>
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember Me</label>
+                    </div>
+                    
+                </div>
             </div>
             <input type="submit" value="Login">
+            <a href="#">Forgot Password?</a>
+            <a href="/registrationForm.html">Sign up</a>
         </form>
     </div>
 </body>
