@@ -10,8 +10,62 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
-          background-image: url(images/signupbg1.jpg);
+            background-image: url(images/signupbg1.jpg);
+            padding-top: 70px; 
+            box-sizing: border-box;
         }
+        .header {
+            background: linear-gradient(to right, #acb4bb, #2aa4bd); 
+            border-bottom: 1px solid #ccc; 
+            padding: 10px 5px;
+            position: fixed;
+            top: 10px; 
+            left: 0;
+            right: 0;
+            width: 98%; 
+            margin: 0 auto; 
+            z-index: 1000; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box; 
+            border-radius: 15px; 
+            color: white; 
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        .header nav ul li {
+            margin-right: 20px;
+        }
+        .header nav ul li a {
+            text-decoration: none;
+            color: white; 
+            font-size: 14px;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .header nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px; 
+            width: auto;
+        }
+
         .container {
             max-width: 800px;
             margin: auto;
@@ -33,6 +87,22 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="logo">
+            <a href="header.html" class="logo">
+                <img src="/images/logo.png" alt="Logo">
+            </a>
+            <div class="find-doctor">Find Doctor</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/aboutUs.html">About us</a></li>
+                <li><a href="/loginForm.html">Sign in</a></li>
+                <li><a href="/registrationForm.html">Sign up</a></li>
+                <li><a href="/contactUs.html">Contact us</a></li>
+            </ul>
+        </nav>
+    </div>
     <div class="container">
         <div class="about-section">
             <h1>About Find Doctor</h1>

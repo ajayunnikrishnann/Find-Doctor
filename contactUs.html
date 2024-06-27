@@ -5,22 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Find Doctor</title>
     <style>
-        
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            margin: 20px;
-            background: linear-gradient(to right, #b7c1ca, #137d92);
+            margin: 0;
+            background: linear-gradient(to right, #686e74, #139239);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 100px; 
+            box-sizing: border-box;
         }
+
+        .header {
+            background: linear-gradient(to right, #acb4bb, #2aa4bd); 
+            border-bottom: 1px solid #ccc; 
+            padding: 10px 5px;
+            position: fixed;
+            top: 10px; 
+            left: 0;
+            right: 0;
+            width: 98%; 
+            margin: 0 auto; 
+            z-index: 1000; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box; 
+            border-radius: 15px; 
+            color: white; 
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .header nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        .header nav ul li {
+            margin-right: 20px;
+        }
+        .header nav ul li a {
+            text-decoration: none;
+            color: white; 
+            font-size: 14px;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .header nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 40px; 
+            width: auto;
+        }
+
         .container {
-            max-width: 800px;
-            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .contact-section {
+        .contact-section, .address-section {
             background-color: #fff; 
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            width: 40%;
+            height: auto;
+            margin-top: 60px;
+            box-sizing: border-box;
         }
         h1 {
             text-align: center;
@@ -32,11 +98,12 @@
         }
         input, textarea {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
             resize: vertical;
+            box-sizing: border-box;
         }
         button {
             background-color: #4CAF50;
@@ -45,29 +112,160 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
         }
         button:hover {
             background-color: #45a049;
         }
+        .error {
+            color: red;
+        }
+
+        .address-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
+
+    <div class="header">
+        <div class="logo">
+            <a href="header.html" class="logo">
+                <img src="/images/logo.png" alt="Logo">
+            </a>
+            <div class="find-doctor">Find Doctor</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/aboutUs.html">About us</a></li>
+                <li><a href="/loginForm.html">Sign in</a></li>
+                <li><a href="/registrationForm.html">Sign up</a></li>
+                <li><a href="/contactUs.html">Contact us</a></li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="container">
         <div class="contact-section">
             <h1>Contact Us</h1>
-            <form action="#" method="post">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+            <form action="#" method="post" onsubmit="return validateForm()">
+                <label for="username">Name</label>
+                <input type="text" id="username" name="username" >
+                <span id="usernameError" class="error"></span>
 
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email">
+                <span id="emailError" class="error"></span>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" >
+                <span id="phoneError" class="error"></span>
 
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
+                <textarea id="message" name="message" rows="6"></textarea>
+                <span id="messageError" class="error"></span>
 
                 <button type="submit">Submit</button>
             </form>
         </div>
+        <div class="address-section">
+            <img src="/images/office.jpg" alt="Logo">
+            <h1>Find Doctor Office</h1>
+            <p><strong>Address:</strong></p>
+            <p>123 Health St.</p>
+            <p>Wellness City, WC 45678</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> contact@finddoctor.com</p>
+        </div>
     </div>
+    <script>
+        function validateForm() {
+            let isValid = true;
+            clearErrors();
+
+            if (!validateField('username', 'username')) {
+                isValid = false;
+            }
+
+            if (!validatePhoneNumber('phone')) {
+                isValid = false;
+            }
+            
+            if (!validateEmail('email')) {
+                isValid = false;
+            }
+            if (!validateMessage('message')) {
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+
+        function validateField(fieldId, fieldName) {
+            const field = document.getElementById(fieldId);
+            const errorSpan = document.getElementById(fieldId + 'Error');
+            const value = field.value.trim();
+
+            if (value === '') {
+                errorSpan.textContent = `Please enter your ${fieldName}.`;
+                return false;
+            }
+
+            return true;
+        }
+        function validateMessage(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorSpan = document.getElementById(fieldId + 'Error');
+            const value = field.value.trim();
+
+            if (value.length < 5 || value.length > 200) {
+                errorSpan.textContent = 'Message must be between 5 and 200 characters.';
+                return false;
+            }
+
+            return true;
+        }
+
+        function validatePhoneNumber(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorSpan = document.getElementById(fieldId + 'Error');
+            const phoneRegex = /^\d{10}$/;
+
+            if (!phoneRegex.test(field.value)) {
+                errorSpan.textContent = 'Please enter a valid 10-digit phone number.';
+                return false;
+            }
+
+            return true;
+        }
+
+        function validateEmail(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorSpan = document.getElementById(fieldId + 'Error');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(field.value)) {
+                errorSpan.textContent = 'Please enter a valid email address.';
+                return false;
+            }
+
+            return true;
+        }
+
+        function clearErrors() {
+            const errorSpans = document.querySelectorAll('.error');
+            errorSpans.forEach(span => {
+                span.textContent = '';
+            });
+        }
+
+     
+
+        
+    </script>
 </body>
 </html>
