@@ -153,6 +153,62 @@
             background-color: rgb(184, 221, 204);
             outline: none;
         }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+                width: 100%;
+            }
+            .header nav ul {
+                flex-direction: column;
+                width: 100%;
+                display: none; 
+            }
+            .header nav ul.show {
+                display: flex;
+            }
+            .header nav ul li {
+                margin: 5px 0;
+            }
+            .menu-toggle {
+                display: block;
+                margin-left: auto;
+            }
+            .header nav ul.show {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 18px;
+            }
+            .header nav ul li a {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+            .find-doctor {
+                font-size: 16px;
+            }
+            .footer .social-icons a {
+                font-size: 18px;
+            }
+        }
+
+        @media (min-width: 769px) {
+    .header .menu-toggle {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -163,6 +219,7 @@
             </a>
             <div class="find-doctor">Find Doctor</div>
         </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <nav>
             <ul>
                 <li><a href="/aboutUs.html">About us</a></li>
@@ -267,6 +324,11 @@
                 });
             });
         });
+
+        function toggleMenu() {
+            var nav = document.querySelector('.header nav ul');
+            nav.classList.toggle('show');
+        }
     </script>
 </body>
 </html>

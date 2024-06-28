@@ -180,22 +180,44 @@
             color: red;
             font-size: 14px;
         }
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            margin-left: auto;
+        }
 
+        @media (max-width: 768px) {
+            .signup-form {
+                padding: 15px;
+            }
 
-@media (max-width: 768px) {
- .signup-form {
-     padding: 15px;
- }
             .signup-form h2 {
                 font-size: 16px;
             }
+
             .inputbox label,
             .inputbox input,
             .inputbox select {
                 font-size: 14px;
             }
+
             .input-row .inputbox {
                 width: 100%;
+            }
+
+            .header nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            .header nav ul.show {
+                display: flex;
+            }
+
+            .header .menu-toggle {
+                display: block;
             }
         }
 
@@ -203,17 +225,26 @@
             .signup-form {
                 padding: 10px;
             }
+
             .signup-form h2 {
                 font-size: 14px;
             }
+
             .inputbox label,
             .inputbox input,
             .inputbox select {
                 font-size: 12px;
             }
+
             input[type="submit"] {
                 font-size: 12px;
                 padding: 6px 12px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .header .menu-toggle {
+                display: none;
             }
         }
     </style>
@@ -227,6 +258,7 @@
                 <div class="find-doctor">Find Doctor</div>
            
         </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <nav>
             <ul>
                 <li><a href="/aboutUs.html">About us</a></li>
@@ -564,6 +596,11 @@
                 });
             });
         });
+
+        function toggleMenu() {
+            var nav = document.querySelector('.header nav ul');
+            nav.classList.toggle('show');
+        }
     </script>
 
 </body>

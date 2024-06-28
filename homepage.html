@@ -125,6 +125,9 @@
                 width: 100%;
                 display: none; 
             }
+            .header nav ul.show {
+                display: flex;
+            }
             .header nav ul li {
                 margin: 5px 0;
             }
@@ -152,6 +155,12 @@
                 font-size: 18px;
             }
         }
+
+        @media (min-width: 769px) {
+    .header .menu-toggle {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -163,6 +172,7 @@
             <div class="find-doctor">Find Doctor</div>
         
         </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         <nav>
             <ul>
                 <li><a href="/aboutUs.html">About us</a></li>
@@ -205,6 +215,11 @@
             if (slideIndex > slides.length) {slideIndex = 1}
             slides[slideIndex-1].style.display = "block";
             setTimeout(showSlides, 4000); 
+        }
+
+        function toggleMenu() {
+            var nav = document.querySelector('.header nav ul');
+            nav.classList.toggle('show');
         }
     </script>
 
