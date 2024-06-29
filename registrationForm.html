@@ -14,7 +14,8 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            padding-top: 150px; 
+            padding-top: 0px; 
+           
             box-sizing: border-box;
         }
 
@@ -79,32 +80,53 @@
             width: auto;
         }
         .signup-form {
-            background: rgba(255, 254, 254, 0.4);
+            background: rgba(122, 129, 128, 0.5);
             padding: 12px;
             border-radius: 10px;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-            max-width: 450px;
+            max-width: 600px;
             width: 100%;
             text-align: center;
-            font-size: 14px;
-            margin-top: 40px;
+            font-size: 14px;         
+            max-height: 76vh;
+            overflow-y: auto;
+            margin-top: 90px;
+        }
+        .signup-form::-webkit-scrollbar {
+    width: 4px; 
+        }
+
+.signup-form::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); 
+        }
+
+.signup-form::-webkit-scrollbar-thumb {
+    background-color: #2aa4bd; 
+    border-radius: 4px; 
+        }
+
+
+.content {
+    overflow-x: hidden;
         }
         .signup-form h2 {
-            margin-bottom: 15px;
+            margin-bottom: 2px;
             font-size: 18px;
         }
         .inputbox {
             margin-bottom: 5px;
             text-align: left;
+            
         }
         .inputbox label {
             display: block;
             margin-bottom: 3px;
             font-size: 12px;
+            width: 100%
         }
         .inputbox input,
         .inputbox select {
-            width: calc(100% - 10px);
+            width: calc(100% - 18px);
             padding: 8px;
             margin: 0 auto;
             display: block;
@@ -112,17 +134,19 @@
             border-radius: 4px;
             font-size: 12px;
             background-color: transparent;
+            box-sizing: border-box;
         }
         .inputbox input:focus, .inputbox select:focus {
             background-color: rgb(184, 221, 204);
             outline: none;
         }
         .input-row {
-            display: flex;
+            display: block;
             justify-content: space-between;
         }
         .input-row .inputbox {
-            width: 48%;
+            width: 100%;
+            margin-bottom: 10px
         }
         input[type="submit"] {
             background-color: #08e2d7;
@@ -158,12 +182,12 @@
 .radio-group label {
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 100px;
     font-size: 12px;
 }
 
 .radio-group input {
-    margin-right: 5px;
+    margin: 0 1px 0 0;
 }
 
 .signin-button {
@@ -177,8 +201,8 @@
            
         }
         .error {
-            color: red;
-            font-size: 14px;
+            color: rgb(238, 7, 7);
+            font-size: 16px;
         }
         .menu-toggle {
             display: none;
@@ -186,6 +210,8 @@
             color: white;
             font-size: 18px;
             margin-left: auto;
+        }.star {
+            color: red;
         }
 
         @media (max-width: 768px) {
@@ -274,13 +300,13 @@
             <div class="content">
                 <div class="input-row">
                     <div class="inputbox">
-                        <label for="firstname">First name</label>
+                        <label for="firstname">First name<span class="star">*</span></label>
                         <input type="text" id="firstname" placeholder="Enter your first name" name="firstname"  >
                         <span id="firstnameError" class="error"></span>
                     </div>
 
                     <div class="inputbox">
-                        <label for="lastname">Last name</label>
+                        <label for="lastname">Last name<span class="star">*</span></label>
                         <input type="text" id="lastname" placeholder="Enter your last name" name="lastname" >
                         <span id="lastnameError" class="error"></span>
                     </div>
@@ -288,21 +314,21 @@
 
                 <div class="input-row">
                     <div class="inputbox">
-                        <label for="dob">Date of birth</label>
-                        <input type="date" id="dob" name="dob" >
+                        <label for="dob">Date of birth<span class="star">*</span></label>
+                        <input type="date" id="dob" name="dob" onchange="calculateAge()">
                         <span id="dobError" class="error"></span>
                     </div>
 
                     <div class="inputbox">
                         <label for="age">Age</label>
-                        <input type="number" id="age" placeholder="Enter your age" name="age">
+                        <input type="number" id="age" placeholder="Enter your age" name="age" readonly>
                         <span id="ageError" class="error"></span>
                     </div>
                 </div>
 
                 <div class="input-row">
                     <div class="inputbox">
-                        <label for="gender">Gender</label>
+                        <label for="gender">Gender<span class="star">*</span></label>
                         <div class="radio-group">
                             <label><input type="radio" name="gender" value="male"> Male</label>
                             <label><input type="radio" name="gender" value="female" > Female</label>
@@ -312,35 +338,35 @@
                     </div>
 
                     <div class="inputbox">
-                        <label for="phone">Phone number</label>
+                        <label for="phone">Phone number<span class="star">*</span></label>
                         <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
                         <span id="phoneError" class="error"></span>
                     </div>
                 </div>
 
                 <div class="inputbox">
-                    <label for="email">Email address</label>
+                    <label for="email">Email address<span class="star">*</span></label>
                     <input type="email" id="email" name="email" placeholder="Enter your email address">
                     <span id="emailError" class="error"></span>
                 </div>
 
                 <div class="inputbox">
-                    <label for="address">Address</label>
+                    <label for="address">Address<span class="star">*</span></label>
                     <input type="text" id="address" name="address" placeholder="Enter your address">
                     <span id="addressError" class="error"></span>
                 </div>
 
                 <div class="input-row">
                     <div class="inputbox">
-                        <label for="state">State</label>
-                        <select id="state" name="state">
+                        <label for="state">State<span class="star">*</span></label>
+                        <select id="state" name="state" onchange="populateCities()">
                             <option value="India">India</option>
                         </select>
                         <span id="stateError" class="error"></span>
                     </div>
 
                     <div class="inputbox">
-                        <label for="city">City</label>
+                        <label for="city">City<span class="star">*</span></label>
                         <select id="city" name="city">
                             <option>Kerala</option>
                             <option>Tamilnadu</option>
@@ -351,19 +377,19 @@
                 </div>
 
                 <div class="inputbox">
-                    <label for="username">Username</label>
+                    <label for="username">Username<span class="star">*</span></label>
                     <input type="text" id="username" name="username" placeholder="Enter your username">
                     <span id="usernameError" class="error"></span>
                 </div>
 
                 <div class="inputbox">
-                    <label for="password">Password</label>
+                    <label for="password">Password<span class="star">*</span></label>
                     <input type="password" id="password" name="password" placeholder="Enter your password">
                     <span id="passwordError" class="error"></span>
                 </div>
 
                 <div class="inputbox">
-                    <label for="confirm_password">Confirm password</label>
+                    <label for="confirm_password">Confirm password<span class="star">*</span></label>
                     <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password">
                     <span id="confirmPasswordError" class="error"></span>
                 </div>
@@ -373,235 +399,7 @@
         </form>
     </div>
 
-    <script>
-        function validateForm() {
-           
-            clearErrors();
-
-            
-            let isValid = true;
-
-        
-            if (!validateField('firstname', 'first name')) {
-                isValid = false;
-            }
-
-           
-            if (!validateField('lastname', 'last name')) {
-                isValid = false;
-            }
-
-           
-            if (!validateDateOfBirth('dob')) {
-                isValid = false;
-            }
-
-          
-            if (!validateAge('age')) {
-                isValid = false;
-            }
-
-          
-            if (!validateGender('gender')) {
-                isValid = false;
-            }
-
-           
-            if (!validatePhoneNumber('phone')) {
-                isValid = false;
-            }
-
-           
-            if (!validateEmail('email')) {
-                isValid = false;
-            }
-
-            
-            if (!validateField('address', 'address')) {
-                isValid = false;
-            }
-
-            
-            if (!validateField('state', 'state')) {
-                isValid = false;
-            }
-
-           
-            if (!validateField('city', 'city')) {
-                isValid = false;
-            }
-
-            
-            if (!validateField('username', 'username')) {
-                isValid = false;
-            }
-
-          
-            if (!validatePassword('password')) {
-                isValid = false;
-            }
-
-            
-            if (!validateConfirmPassword('confirm_password')) {
-                isValid = false;
-            }
-
-            if (isValid) {
-                window.location.href = '/loginForm.html';
-            }
-
-          
-
-            return isValid = false;
-        }
-
-        function validateField(fieldId, fieldName) {
-            const field = document.getElementById(fieldId);
-            const errorSpan = document.getElementById(fieldId + 'Error');
-            const value = field.value.trim();
-
-            if (value === '') {
-                errorSpan.textContent = `Please enter your ${fieldName}.`;
-                return false;
-            }
-
-            return true;
-        }
-
-        function validateDateOfBirth(fieldId) {
-            const field = document.getElementById(fieldId);
-            const errorSpan = document.getElementById(fieldId + 'Error');
-            const dob = new Date(field.value);
-            const today = new Date();
-            const maxAge = 100; 
-
-            if (field.value === '' || isNaN(dob)) {
-                errorSpan.textContent = 'Please enter a valid date of birth.';
-                return false;
-            }
-
-            const age = today.getFullYear() - dob.getFullYear();
-            if (age < 18 || age > maxAge) {
-                errorSpan.textContent = `Age must be between 18 and ${maxAge} years.`;
-                return false;
-            }
-
-            return true;
-        }
-
-        function validateAge(fieldId) {
-            const field = document.getElementById(fieldId);
-            const errorSpan = document.getElementById(fieldId + 'Error');
-            const age = parseInt(field.value);
-
-            if (isNaN(age) || age <= 0) {
-                errorSpan.textContent = 'Please enter a valid age.';
-                return false;
-            }
-
-            return true;
-        }
-
-        function validateGender(fieldId) {
-            const errorSpan = document.getElementById(fieldId + 'Error');
-            const genderInputs = document.querySelectorAll(`input[name=${fieldId}]`);
-            let isChecked = false;
-
-            genderInputs.forEach(input => {
-                if (input.checked) {
-                    isChecked = true;
-                }
-            });
-
-            if (!isChecked) {
-                errorSpan.textContent = 'Please select your gender.';
-                return false;
-            }
-
-            return true;
-        }
-
-        function validatePhoneNumber(fieldId) {
-            const field = document.getElementById(fieldId);
-            const errorSpan = document.getElementById(fieldId + 'Error');
-            const phoneRegex = /^\d{10}$/;
-
-            if (!phoneRegex.test(field.value)) {
-                errorSpan.textContent = 'Please enter a valid 10-digit phone number.';
-                return false;
-            }
-
-            return true;
-        }
-
-        function validateEmail(fieldId) {
-            const field = document.getElementById(fieldId);
-            const errorSpan = document.getElementById(fieldId + 'Error');
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!emailRegex.test(field.value)) {
-                errorSpan.textContent = 'Please enter a valid email address.';
-                return false;
-            }
-
-            return true;
-        }
-
-        function validatePassword(fieldId) {
-            const field = document.getElementById(fieldId);
-            const errorSpan = document.getElementById(fieldId + 'Error');
-            const password = field.value;
-
-           
-            if (password.length < 8) {
-                errorSpan.textContent = 'Password must be at least 8 characters long.';
-                return false;
-            }
-
-            return true;
-        }
-
-        function validateConfirmPassword(confirmFieldId) {
-            const confirmPasswordField = document.getElementById(confirmFieldId);
-            const passwordField = document.getElementById('password');
-            const errorSpan = document.getElementById('confirmPasswordError');
-            const confirmPassword = confirmPasswordField.value;
-            const password = passwordField.value;
-
-            if (confirmPassword !== password) {
-                errorSpan.textContent = 'Passwords do not match.';
-                return false;
-            }
-
-            return true;
-        }
-
-        function clearErrors() {
-            const errorSpans = document.querySelectorAll('.error');
-            errorSpans.forEach(span => {
-                span.textContent = '';
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const inputs = document.querySelectorAll('.inputbox input, .inputbox select');
-            
-            inputs.forEach(input => {
-                input.addEventListener('focus', function () {
-                    this.style.backgroundColor = '';
-                });
-                
-                input.addEventListener('blur', function () {
-                    this.style.backgroundColor = '';
-                });
-            });
-        });
-
-        function toggleMenu() {
-            var nav = document.querySelector('.header nav ul');
-            nav.classList.toggle('show');
-        }
-    </script>
+    <script src="registrationFormScript.js"></script>
 
 </body>
 </html>
