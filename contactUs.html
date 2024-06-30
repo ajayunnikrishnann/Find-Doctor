@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Find Doctor</title>
     <style>
+        /* Global styles */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -13,11 +14,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100vh; 
             padding-top: 100px; 
             box-sizing: border-box;
         }
 
+        /* Header styles */
         .header {
             background: linear-gradient(to right, #acb4bb, #2aa4bd); 
             border-bottom: 1px solid #ccc; 
@@ -70,6 +72,7 @@
             width: auto;
         }
 
+        /* Main container styles */
         .container {
             display: flex;
             justify-content: space-between;
@@ -78,12 +81,14 @@
             padding: 20px;
             box-sizing: border-box;
         }
+
+        /* Contact form section */
         .contact-section, .address-section {
             background-color: #fff; 
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-            width: 40%;
+            width: 40%; 
             height: auto;
             margin-top: 60px;
             box-sizing: border-box;
@@ -122,6 +127,7 @@
             color: red;
         }
 
+        /* Address section */
         .address-section img {
             max-width: 100%;
             border-radius: 10px;
@@ -132,13 +138,16 @@
 </head>
 <body>
 
+    <!-- Header section -->
     <div class="header">
         <div class="logo">
+            <!-- Logo and site name -->
             <a href="homepage.html" class="logo">
                 <img src="/images/logo.png" alt="Logo">
             </a>
             <div class="find-doctor">Find Doctor</div>
         </div>
+        <!-- Navigation links -->
         <nav>
             <ul>
                 <li><a href="/aboutUs.html">About us</a></li>
@@ -149,12 +158,15 @@
         </nav>
     </div>
 
+    <!-- Main content container -->
     <div class="container">
+        <!-- Contact form section -->
         <div class="contact-section">
             <h1>Contact Us</h1>
+            <!-- Contact form -->
             <form action="#" method="post" onsubmit="return validateForm()">
                 <label for="username">Name</label>
-                <input type="text" id="username" name="username" >
+                <input type="text" id="username" name="username">
                 <span id="usernameError" class="error"></span>
 
                 <label for="email">Email</label>
@@ -162,7 +174,7 @@
                 <span id="emailError" class="error"></span>
 
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" >
+                <input type="tel" id="phone" name="phone">
                 <span id="phoneError" class="error"></span>
 
                 <label for="message">Message</label>
@@ -172,8 +184,9 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
+        <!-- Address section -->
         <div class="address-section">
-            <img src="/images/office.jpg" alt="Logo">
+            <img src="/images/office.jpg" alt="Office Image">
             <h1>Find Doctor Office</h1>
             <p><strong>Address:</strong></p>
             <p>123 Health St.</p>
@@ -182,6 +195,8 @@
             <p><strong>Email:</strong> contact@finddoctor.com</p>
         </div>
     </div>
+
+    <!-- JavaScript for form validation -->
     <script>
         function validateForm() {
             let isValid = true;
@@ -217,6 +232,7 @@
 
             return true;
         }
+
         function validateMessage(fieldId) {
             const field = document.getElementById(fieldId);
             const errorSpan = document.getElementById(fieldId + 'Error');
@@ -262,10 +278,6 @@
                 span.textContent = '';
             });
         }
-
-     
-
-        
     </script>
 </body>
 </html>

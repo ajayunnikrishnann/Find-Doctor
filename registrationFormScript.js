@@ -1,3 +1,4 @@
+// Function to validate the form
 function validateForm() {
            
     clearErrors();
@@ -70,6 +71,7 @@ function validateForm() {
         isValid = false;
     }
 
+    // Redirect to login page after successful validation
     if (isValid) {
         window.location.href = '/loginForm.html';
     }
@@ -79,6 +81,7 @@ function validateForm() {
     return isValid = false;
 }
 
+// Function to calculate age based on date of birth
 function calculateAge() {
     const dobField = document.getElementById('dob');
     const ageField = document.getElementById('age');
@@ -95,19 +98,21 @@ function calculateAge() {
     }
 }
 
+// Function to validate a field based on its ID and display name
 function validateField(fieldId, fieldName) {
     const field = document.getElementById(fieldId);
     const errorSpan = document.getElementById(fieldId + 'Error');
-    const value = field.value.trim();
+    const value = field.value.trim(); // Get trimmed value of the field
 
     if (value === '') {
-        errorSpan.textContent = `Please enter your ${fieldName}.`;
-        return false;
+        errorSpan.textContent = `Please enter your ${fieldName}.`; // Display error message if field is empty
+        return false;  // Return false indicating validation failure
     }
 
-    return true;
+    return true; // Return true indicating validation success
 }
 
+// Function to validate date of birth field
 function validateDateOfBirth(fieldId) {
     const field = document.getElementById(fieldId);
     const errorSpan = document.getElementById(fieldId + 'Error');
@@ -129,6 +134,7 @@ function validateDateOfBirth(fieldId) {
     return true;
 }
 
+// Function to validate age field
 function validateAge(fieldId) {
     const field = document.getElementById(fieldId);
     const errorSpan = document.getElementById(fieldId + 'Error');
@@ -142,6 +148,7 @@ function validateAge(fieldId) {
     return true;
 }
 
+// Function to validate gender field
 function validateGender(fieldId) {
     const errorSpan = document.getElementById(fieldId + 'Error');
     const genderInputs = document.querySelectorAll(`input[name=${fieldId}]`);
@@ -161,6 +168,7 @@ function validateGender(fieldId) {
     return true;
 }
 
+// Function to validate phone number field
 function validatePhoneNumber(fieldId) {
     const field = document.getElementById(fieldId);
     const errorSpan = document.getElementById(fieldId + 'Error');
@@ -174,6 +182,7 @@ function validatePhoneNumber(fieldId) {
     return true;
 }
 
+// Function to validate email field
 function validateEmail(fieldId) {
     const field = document.getElementById(fieldId);
     const errorSpan = document.getElementById(fieldId + 'Error');
@@ -187,6 +196,7 @@ function validateEmail(fieldId) {
     return true;
 }
 
+// Function to validate password field
 function validatePassword(fieldId) {
     const field = document.getElementById(fieldId);
     const errorSpan = document.getElementById(fieldId + 'Error');
@@ -201,6 +211,7 @@ function validatePassword(fieldId) {
     return true;
 }
 
+// Function to validate confirm password field
 function validateConfirmPassword(confirmFieldId) {
     const confirmPasswordField = document.getElementById(confirmFieldId);
     const passwordField = document.getElementById('password');
@@ -216,6 +227,7 @@ function validateConfirmPassword(confirmFieldId) {
     return true;
 }
 
+// Function to clear all error messages
 function clearErrors() {
     const errorSpans = document.querySelectorAll('.error');
     errorSpans.forEach(span => {
@@ -223,23 +235,26 @@ function clearErrors() {
     });
 }
 
+// Event listener for DOM content loaded
 document.addEventListener('DOMContentLoaded', function () {
-    const inputs = document.querySelectorAll('.inputbox input, .inputbox select');
+    const inputs = document.querySelectorAll('.inputbox input, .inputbox select'); // Select all input and select elements in input boxes
     
+    // Add event listeners for focus and blur events
     inputs.forEach(input => {
         input.addEventListener('focus', function () {
-            this.style.backgroundColor = '';
+            this.style.backgroundColor = '';  // Clear background color on focus
         });
         
         input.addEventListener('blur', function () {
-            this.style.backgroundColor = '';
+            this.style.backgroundColor = ''; // Clear background color on blur
         });
     });
 });
 
+// Function to toggle the navigation menu (for mobile view)
 function toggleMenu() {
-    var nav = document.querySelector('.header nav ul');
-    nav.classList.toggle('show');
+    var nav = document.querySelector('.header nav ul');// Select the navigation menu
+    nav.classList.toggle('show'); // Toggle the 'show' class to display/hide the menu
 }
 
 const citiesByState = {

@@ -27,6 +27,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; 
         }
 
+         /* Header Styles */
         .header {
             background: linear-gradient(to right, #acb4bb, #2aa4bd); 
             border-bottom: 1px solid #ccc; 
@@ -79,6 +80,7 @@
             height: 40px; 
             width: auto;
         }
+         /* Signup Form Styles */
         .signup-form {
             background: rgba(122, 129, 128, 0.5);
             padding: 12px;
@@ -113,6 +115,8 @@
             margin-bottom: 2px;
             font-size: 18px;
         }
+
+          /* Input Styles */
         .inputbox {
             margin-bottom: 5px;
             text-align: left;
@@ -200,6 +204,7 @@
             margin-top: 10px;
            
         }
+           /* Error Styles */
         .error {
             color: rgb(238, 7, 7);
             font-size: 16px;
@@ -214,6 +219,7 @@
             color: red;
         }
 
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .signup-form {
                 padding: 15px;
@@ -276,7 +282,9 @@
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <div class="header">
+         <!-- Logo Section -->
         <div class="logo">
             <a href="homepage.html" class="logo">
                 <img src="/images/logo.png" alt="Logo">
@@ -284,7 +292,9 @@
                 <div class="find-doctor">Find Doctor</div>
            
         </div>
+         <!-- Menu Toggle for Small Screens -->
         <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <!-- Navigation Section -->
         <nav>
             <ul>
                 <li><a href="/aboutUs.html">About us</a></li>
@@ -294,6 +304,7 @@
             </ul>
         </nav>
     </div>
+       <!-- Signup Form Section -->
     <div class="signup-form">
         <form id="signupForm" action="" method="post" onsubmit="return validateForm()">
             <h2 class="signupcolor">Signup</h2>
@@ -398,7 +409,7 @@
             <a href="/loginForm.html" class="signin-button">Already have an account? Sign in</a>
         </form>
     </div>
-
+     <!-- External script file -->
     <script src="registrationFormScript.js"></script>
 
 </body>

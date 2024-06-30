@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
+         /* set the background image for the wholebody */
         body {
             background-image: url('/images/signupbg.jpg');
             background-size: cover;
@@ -18,14 +19,17 @@
         .inputbox input::placeholder {
             color: black; 
         }
+        /* Font for body and input elements */
         body, input, select, textarea {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
         }
 
+        /* Font  for headers and labels */
         h1, h2, h3, h4, h5, h6, p, a, label {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; 
         }
 
+        /* Header styling */
         .header {
             background: linear-gradient(to right, #acb4bb, #2aa4bd); 
             border-bottom: 1px solid #ccc; 
@@ -77,6 +81,8 @@
             height: 40px; 
             width: auto;
         }
+
+        /* Login form styling */
         .login-form {
             background: rgba(255, 254, 254, 0.4);
             padding: 20px;
@@ -111,6 +117,7 @@
             font-size: 12px;
             background-color: transparent;
         }
+        /* Remember me and forgot password  */
         .remember-forgot {
             display: flex;
             justify-content: space-between;
@@ -144,16 +151,18 @@
             background-color: #0056b3;
         }
 
+        /* error message styling */
         .error {
             color: red;
             font-size: 14px;
         }
 
+        /* Focused input field styling */
         .inputbox input:focus, .inputbox select:focus {
             background-color: rgb(184, 221, 204);
             outline: none;
         }
-
+         /* Menu toggle button for mobile view */
         .menu-toggle {
             display: none;
             cursor: pointer;
@@ -161,6 +170,7 @@
             color: white;
         }
 
+        /* Media query for screens up to 768px wide */
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -188,6 +198,7 @@
             }
         }
 
+        /* Media query for screens up to 480px wide */
         @media (max-width: 480px) {
             .header h1 {
                 font-size: 18px;
@@ -203,7 +214,7 @@
                 font-size: 18px;
             }
         }
-
+        /* Media query for screens wider than 768px */
         @media (min-width: 769px) {
     .header .menu-toggle {
         display: none;
@@ -212,6 +223,7 @@
     </style>
 </head>
 <body>
+    <!-- Header section -->
     <div class="header">
         <div class="logo">
             <a href="homepage.html" class="logo">
@@ -229,6 +241,7 @@
             </ul>
         </nav>
     </div>
+    <!-- Login form section -->
     <div class="login-form">
         <form action="" method="post" onsubmit="return validateForm()">
             <h2>Sign in</h2>
@@ -258,6 +271,7 @@
             <a href="/registrationForm.html">Sign up</a>
         </form>
     </div>
+     <!-- External script file -->
     <script src="loginFormScript.js"></script>
 </body>
 </html>
